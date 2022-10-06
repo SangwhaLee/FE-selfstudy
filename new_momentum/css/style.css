@@ -38,6 +38,7 @@ img {
 }
 
 #clock {
+    font-weight: 500;
     font-size: 8rem;
     color: #fff;
 }
@@ -51,7 +52,7 @@ img {
     border: none;
     border-bottom: 2px solid white;
     color: #fff;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .hidden {
@@ -62,6 +63,7 @@ img {
     font-family: "Gothic A1", sans-serif;
     color: #fff;
     text-align: center;
+    font-weight: 500;
 }
 
 .make-text-white {
@@ -71,7 +73,25 @@ img {
 #quote {
     color: #fff;
     position: absolute;
-    top: 15px;
+    bottom: 15px;
+}
+
+#focus-today {
+    color: #fff;
+    position: absolute;
+    bottom: 12rem;
+}
+
+#focus-input {
+    outline: none;
+    text-align: center;
+    background-color: transparent;
+    width: 500px;
+    height: 50px;
+    border: none;
+    border-bottom: 2px solid white;
+    color: #fff;
+    font-size: 2rem;
 }
 
 #weather {
