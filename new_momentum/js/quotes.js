@@ -35,6 +35,12 @@ const quotes = [
     {
     quote: '일찍 일어나는 새가 피곤하다.',
     },
+    {
+    quote: '절대절대 포기하지 않는다.'
+    },
+    {
+    quote: "오늘 밥이 야무지네."
+    },
     ];
 
     const quote = document.querySelector("#quote span:first-child");
