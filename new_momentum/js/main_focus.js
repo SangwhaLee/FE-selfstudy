@@ -18,6 +18,8 @@ function onFocusSubmit(event){
 
 function paintFocus(mainfocus){
   MainFocus.classList.remove (HIDDEN);
+  const TodayWord = document.getElementById("Today");
+  TodayWord.classList.remove(HIDDEN);
   MainFocus.innerText = mainfocus;
 }
 

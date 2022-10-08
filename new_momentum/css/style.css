@@ -55,6 +55,11 @@ img {
     font-size: 2rem;
 }
 
+#greeting {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
 .hidden {
     display: none;
 }
@@ -78,7 +83,6 @@ img {
 
 #focus-today {
     color: #fff;
-    position: absolute;
     bottom: 12rem;
 }
 
@@ -94,9 +98,23 @@ img {
     font-size: 2rem;
 }
 
+#FocusToday {
+    color: #fff;
+    font-size: 2rem;
+}
+
+#Today {
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.3rem;
+}
+
 #weather {
     color: #fff;
     position: absolute;
     top: 10px;
     right: 12px;
 }
+
+
+
