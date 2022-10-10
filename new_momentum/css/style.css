@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 html {
     width: 100%;
     height: 100%;
@@ -37,6 +41,10 @@ img {
     justify-content: center;
 }
 
+.line-through {
+    text-decoration: line-through;
+}
+
 #clock {
     font-weight: 500;
     font-size: 8rem;
@@ -58,6 +66,7 @@ img {
 #greeting {
     font-size: 3rem;
     font-weight: 500;
+    margin-bottom: 6rem;
 }
 
 .hidden {
@@ -98,15 +107,43 @@ img {
     font-size: 2rem;
 }
 
-#FocusToday {
+#FocusToday { 
+    position: relative;
     color: #fff;
     font-size: 2rem;
+    bottom: 17px
 }
 
 #Today {
     color: #fff;
     font-weight: 900;
     font-size: 1.3rem;
+}
+
+input[class="checktoday"] + label {
+    display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #fff;
+    border-radius: 20%;
+	cursor: pointer;
+    margin-right: 10px;
+}
+
+input[class="checktoday"]:checked + label {
+	background-color: #fff;
+}
+
+input[class="checktoday"] {
+    display: none;
+}
+
+#TodoButton{
+    color: #fff;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
 }
 
 #weather {
@@ -116,5 +153,65 @@ img {
     right: 12px;
 }
 
+.todoCanvas {
+    position: absolute;
+    border: 2px solid #fff;
+    border-radius: 2%;
+    background-color: #fff;
+    width : 20rem;
+    height: 20rem;
+    bottom: 4rem;
+    right: 0.5rem;
+}
 
+#todo-form{
+    position: inherit;
+    left: 1rem;
+    bottom: 0.5rem;
+    width: 90%;
+}
+
+.todoinput {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+#todo-list {
+    padding-left: 1rem;
+    list-style: none;
+    width: 100%;
+    position: inherit;
+    top: 3rem;
+    max-height: 70%;
+    overflow: scroll;
+}
+
+#todo-list::-webkit-scrollbar {
+    display: none;
+}
+
+input[id="todolist"] {
+    margin-right: 5px;
+}
+
+input[id="todolist"]:checked + label {
+    text-decoration: line-through;
+}
+
+li button {
+    position: absolute;
+    width: 0.5rem;
+    height: 13px;
+    border-radius: 20%;
+    right: 1rem;
+    margin-top: 5px;
+    border: 1px solid red;
+    background-color: red;
+}
+
+.todoCanvas h3 {
+    margin-left: 1rem;
+    margin-top: 2px;
+}
 
