@@ -1,6 +1,6 @@
 function checkOneBox(event){
   const boxes = document.querySelectorAll(".choose");
-  console.log(boxes.length)
+  // console.log(boxes.length)
   for(let i=0; i<boxes.length;i++){
     if(boxes[i] != event.target){
       boxes[i].checked = false;
@@ -9,8 +9,17 @@ function checkOneBox(event){
 }
 
 function nextStage(event){
+  const ratingbox = document.querySelector(".ratingbox");
   const resultbox = document.getElementById("resultbox");
+  const boxes = document.querySelectorAll(".choose");
+  const notice = document.querySelector(".noticebox p");
+  for(let i=0; i<boxes.length;i++){
+    if(boxes[i].checked === true){
+      notice.innerText = ("You selected "+(i+1)+" out of 5");
+    }
+  }
   resultbox.classList.remove("hidden");
+  ratingbox.classList.add("hidden");
 }
 
 const circleButton1 = document.getElementById("button1");

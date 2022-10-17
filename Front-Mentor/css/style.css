@@ -1,4 +1,9 @@
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-color: hsl(216, 12%, 8%);
     font-family: 'Overpass', sans-serif;
     -webkit-user-select:none;
@@ -9,8 +14,8 @@ body {
 
 .ratingbox {
     flex-direction: column;
-    width: 375px;
-    height: 375px;
+    width: 360px;
+    height: 360px;
     border: solid hsla(215, 24%, 14%, 1);
     background-color: hsla(215, 24%, 14%, 1);
     border-radius: 5%;
@@ -105,7 +110,6 @@ input[class="choose"] {
 
 .noticebox {
     position: relative;
-    line-height: 1.7rem;
     font-size: small;
     text-align: center;
     border: 2px hsla(210, 19%, 18%, 1);
@@ -113,10 +117,14 @@ input[class="choose"] {
     border-radius: 7% 7% 7% 7% /45% 45% 45% 45%;
     width: 14rem;
     height: 1.5rem;
-    color: hsl(25, 97%, 53%);
     left: 4.5rem;
     top: 1.5rem;
     margin-bottom: 3.5rem;
+}
+
+.noticebox p {
+    color: hsl(25, 97%, 53%);
+    line-height: 1.7rem;
 }
 
 .attribution {
