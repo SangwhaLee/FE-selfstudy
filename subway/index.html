@@ -55,31 +55,27 @@
         </tr>
       </table>
     </div>
-    <div id="section-manager">
+    <div id="section-manager" class="hidden">
       <h2>구간을 수정할 노선을 선택해주세요.</h2>
       <div id="section-select">
       </div>
-      <div id="section-editor">
+      <div id="section-editor" class="hidden">
         <h2></h2>
         <h4>구간 등록</h4>
-        <div>
+        <form id="section-edit-form">
           <select id="add-station-sector"></select>
           <input type="number" min="0" placeholder="순서">
           <input type="submit" value="등록">
-        </div>
+        </form>
         <br>
-        <table id="selected-line-table">
-          <tr>
-            <th>순서</th>
-            <th>이름</th>
-            <th>설정</th>
-          </tr>
-        </table>
+        <table id="selected-line-table"></table>
       </div>
     </div>
+    <div id="section-list" class="hidden"></div>
     <script type="module" src="/src/index.js" ></script>
     <script type="module" src="/src/stationManager.js"></script>
     <script type="module" src="/src/lineManger.js"></script>
     <script type="module" src="/src/sectionManager.js"></script>
+    <script type="module" src="/src/showSection.js"></script>
   </body>
 </html>

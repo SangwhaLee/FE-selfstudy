@@ -36,6 +36,7 @@ function deleteStation(event){
 function createStation(event){
     event.preventDefault();
     const station = stationInput.value;
+    stationInput.value = "";
     stations.push(station);
     saveStations()
     writeStation(station);

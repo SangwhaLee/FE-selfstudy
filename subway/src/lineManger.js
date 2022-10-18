@@ -32,8 +32,8 @@ function writeLine(line){
     const td3 = document.createElement("td");
     const td4 = document.createElement("td");
     td1.innerText = line.name;
-    td2.innerText = line.top;
-    td3.innerText = line.bottom;
+    td2.innerText = line.section[0];
+    td3.innerText = line.section[line.section.length - 1];
     const button = document.createElement("button");
     button.innerText = "삭제";
     button.addEventListener("click", deleteLine);
@@ -66,10 +66,10 @@ function createLine(event){
     event.preventDefault();
     const lineName = lineInput.value;
     lineInput.value = "";
+    let section = [topLineSelect.value, bottomLineSelect.value];
     const line = {
         name:lineName,
-        top:topLineSelect.value,
-        bottom:bottomLineSelect.value,
+        section: section,
     };
     lines.push(line);
     writeLine(line);
@@ -91,4 +91,4 @@ if(savedLines !== null){
 
 lineForm.addEventListener("submit", createLine);
 
-export { savedLines };
+export { savedLines, saveLines, lines };
