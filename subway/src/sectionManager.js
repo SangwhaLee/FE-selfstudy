@@ -1,4 +1,4 @@
-import { savedLines, saveLines, lines } from "./lineManger.js"
+import { savedLines, saveLines, lines, LINE_KEY } from "./lineManger.js"
 import { savedStations } from "./stationManager.js";
 
 const sectionSelect = document.getElementById("section-select");
@@ -18,11 +18,8 @@ function putChoiceStations(station){
     addStationSector.appendChild(choice);
 }
 
-function writeSector(){
-    
-}
-
 function searchLine(line){
+    const savedLines = localStorage.getItem(LINE_KEY)
     const parsedLines = JSON.parse(savedLines);
     for(let i=0;i<parsedLines.length;i++){
         if(parsedLines[i].name === line){
@@ -33,14 +30,15 @@ function searchLine(line){
 
 function addCourse(event){
     event.preventDefault();
+    const savedLines = localStorage.getItem(LINE_KEY)
     const parsedLines = JSON.parse(savedLines);
     const targetNum = searchLine(nowSectionName);
     parsedLines[targetNum].section.splice(parseInt(newCourseOrder.value), 0, newCourseSelect.value);
-    console.log(parsedLines[targetNum]);
+    // console.log(parsedLines[targetNum]);
     // console.log(newCourseOrder);
     // console.log(newCourseSelect);
     lines.splice(targetNum, 1, parsedLines[targetNum]);
-    console.log(lines);
+    // console.log(lines);
     saveLines();
     writeSectionLine(lines[targetNum]);
 }
@@ -83,6 +81,7 @@ function writeSectionLine(line){
 
 function createSector(event){
     sectionEditor.classList.remove("hidden");
+    const savedLines = localStorage.getItem(LINE_KEY)
     const parsedLines = JSON.parse(savedLines);
     const targetSector = event.target.innerText;
     editorTitle.innerText = targetSector + ' 관리';
@@ -92,15 +91,15 @@ function createSector(event){
     writeSectionLine(parsedLines[targetNum]);
 }
 
-if(savedLines !== null){
-    const parsedLines = JSON.parse(savedLines);
-    for(let i=0; i< parsedLines.length;i++){
-        const button = document.createElement("button");
-        button.innerText = parsedLines[i].name;
-        button.addEventListener ("click", createSector);
-        sectionSelect.appendChild(button);
-    }
-}
+// if(savedLines !== null){
+//     const parsedLines = JSON.parse(savedLines);
+//     for(let i=0; i< parsedLines.length;i++){
+//         const button = document.createElement("button");
+//         button.innerText = parsedLines[i].name;
+//         button.addEventListener ("click", createSector);
+//         sectionSelect.appendChild(button);
+//     }
+// }
 
 if(savedStations !== null) {
     const parsedStations = JSON.parse(savedStations);
@@ -108,3 +107,5 @@ if(savedStations !== null) {
 }
 
 sectionEditForm.addEventListener("submit", addCourse);
+
+export { createSector, sectionSelect }

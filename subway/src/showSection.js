@@ -1,4 +1,4 @@
-import { savedLines } from "./lineManger.js"
+import { savedLines, LINE_KEY } from "./lineManger.js"
 import { savedStations } from "./stationManager.js";
 
 const SectionList = document.getElementById("section-list");
@@ -8,6 +8,8 @@ SectionListButton.addEventListener("click", showMapList)
 
 function showMapList(event){
   event.preventDefault();
+  SectionList.innerText = "";
+  const savedLines = localStorage.getItem(LINE_KEY)
   const parsedlines = JSON.parse(savedLines);
   for(let i=0;i<parsedlines.length;i++){
     showMapListDetail(i, parsedlines[i]);
@@ -27,3 +29,5 @@ function showMapListDetail(targetNum, line){
   SectionList.appendChild(h2);
   SectionList.appendChild(ul);
 }
+
+export {}

@@ -78,11 +78,6 @@ function createLine(event){
 
 const savedLines = localStorage.getItem(LINE_KEY);
 
-if(savedStations !== null){
-    const parsedStations = JSON.parse(savedStations);
-    parsedStations.forEach(putChoiceTopBottom);
-}
-
 if(savedLines !== null){
     const parsedLines = JSON.parse(savedLines);
     lines = parsedLines;
@@ -91,4 +86,4 @@ if(savedLines !== null){
 
 lineForm.addEventListener("submit", createLine);
 
-export { savedLines, saveLines, lines };
+export { savedLines, saveLines, lines, putChoiceTopBottom,topLineSelect,bottomLineSelect, LINE_KEY };
