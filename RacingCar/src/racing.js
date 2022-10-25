@@ -23,7 +23,6 @@ function parseCarName(event){
   const racingCountNotice = document.getElementById("racing-count-notice");
   racingCountForm.classList.remove("hidden");
   racingCountNotice.classList.remove("hidden");
-  console.log(cars);
 }
 
 function isCar_valid(){
@@ -46,7 +45,8 @@ function countRace(event){
     drawScoreBoard(temp);
     car_count = makeScoreBoard(car_count, temp);
     const br = document.createElement("br");
-    raceResult.appendChild("br");
+    raceResult.appendChild(br);
+    raceResult.appendChild(temp)
   }
 }
 
@@ -54,10 +54,12 @@ function makeScoreBoard(car_count, temp){
   for(let i=0;i<cars.length;i++){
     const randomNumber = MissionUtils.Random.pickNumberInRange(0,9);
     if(randomNumber >= 4){
-      const pTarget = temp.querySelector(`p:nth-child(${i+1})`);
       car_count[i] += 1;
-      pTarget.innerText += makeHyphen(car_count[i]);
     }
+  }
+  for(let i=0;i<cars.length;i++){
+    const pTarget = temp.querySelector(`p:nth-child(${i+1})`);
+    pTarget.innerText += makeHyphen(car_count[i]);
   }
   return car_count;
 }
@@ -72,7 +74,6 @@ function makeHyphen(count){
 
 
 function drawScoreBoard(scoreBoard){
-  scoreBoard.innerText = "";
   for(let i=0;i<cars.length;i++){
     const p = document.createElement("p");
     p.innerText = `${cars[i]}: `;
