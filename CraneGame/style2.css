@@ -30,30 +30,70 @@ body {
     background-color: #A4A4A4;
     border: solid 3px #A4A4A4;
     border-radius: 5%;
+    position: 'absolute';
 }
 
-.circle {
+/* .circle {
     height: 80px;
     width: 80px;
     border-radius: 50%;
     background-color: blue;
-  }
+  } */
 
 #clawBar {
     position: absolute;
-    width: 16%;
-    height: 150%;
+    width: 9px;
+    height: 40px;
     top: 90%;
-    left: 40%;
+    left: 41%;
     background-color: #A4A4A4;
+    transition: transform linear;
 }
 
 #clawBall {
     position: absolute;
-    width: 24%;
-    height: 57%;
-    top: 200%;
-    left: 36%;
+    width: 15px;
+    height: 15px;
+    top: 67px;
+    left: 20px;
     border-radius: 50%;
     background-color: #A4A4A4;
 }
+
+#clawLeft {
+    position:absolute;
+    top:72px;
+    left:3px;
+    width:16px;
+    height:25px;
+    border-top:8px solid #A4A4A4;
+    border-left:4px solid #A4A4A4;
+    transform-origin: top right;
+    transform: rotate(-30deg);
+}
+
+#clawRight {
+    position:absolute;
+    top:72px;
+    right:3px;
+    width:16px;
+    height:25px;
+    border-top:8px solid #A4A4A4;
+    border-right:4px solid #A4A4A4;
+    transform-origin: top left;
+    transform: rotate(30deg);
+}
+
+#clawOpen {
+    transform: rotate(0deg);
+}
+
+@-webkit-keyframes fullsize {
+    from {
+      transform:scale(1) translate(0,0)
+    }
+    to {
+      transform:scale(4) translate(30px,-30px)
+    }
+}
+  
