@@ -20,8 +20,8 @@ const isLower = () => {
   }
 }
 
-const $counter = document.querySelector(".count");
-
+// 평점 별이미지 중 덮고 있는 이미지
+const rating = document.querySelector(".star-ratings-fill");
 
 // 슬라이크 전체 크기(width 구하기)
 const slide = document.querySelector(".slide");
@@ -183,13 +183,21 @@ window.addEventListener("resize", () => {
   });
 });
 
+const scoreBtn = document.querySelector(".score-btn")
+
+scoreBtn.addEventListener("click", (e) => {
+  const counter = document.querySelector(".count");
+  countScore(counter, 3.2);
+})
+
 //숫자 증가 애니메이션을 위한 함수 max를 목표로 값으로 증가
-function counter($counter, max) {
+function countScore(counter, max) {
   let now = max;
 
   const handle = setInterval(() => {
-    $counter.innerHTML = Math.round((max - now)*100)/100;
-  
+    counter.innerHTML = Math.round((max - now)*100)/100;
+    rating.style.width = (Math.round((max - now)*100)/10) + '%';
+
     // 목표에 도달하면 정지
     if (now === 0) {
       clearInterval(handle);
@@ -202,9 +210,6 @@ function counter($counter, max) {
   }, 50);
 }
 
-const drawStar = (target) => {
-  document.querySelector(`.star span`).style.width = `${(target.value * 10)+1.5}%`;
-}
 // // 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
 // for (let i = 0; i < maxSlide; i++) {
 //   // 각 페이지네이션마다 클릭 이벤트 추가하기
