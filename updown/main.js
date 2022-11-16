@@ -202,6 +202,9 @@ function counter($counter, max) {
   }, 50);
 }
 
+const drawStar = (target) => {
+  document.querySelector(`.star span`).style.width = `${(target.value * 10)+1.5}%`;
+}
 // // 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
 // for (let i = 0; i < maxSlide; i++) {
 //   // 각 페이지네이션마다 클릭 이벤트 추가하기
