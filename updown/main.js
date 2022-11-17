@@ -1,27 +1,75 @@
 const tempScore = [3,2,4,1]
+const vsCircle = document.getElementById("coin")
+const backCircle = document.querySelector(".vs-back")
 
 //up버튼 이벤트에 매칭되는 함수, 현재 페이지의 평점이 직전의 것보다 큰지 확인
 const isHigher = () => {
   if(tempScore[currSlide-1] < tempScore[currSlide]){
-    nextMove()
+    const word = document.createElement("h1");
+    backCircle.innerText= "";
+    word.innerText = "O";
+    backCircle.style.backgroundColor = "green";
+    backCircle.style.color = "white";
+    backCircle.appendChild(word);
+    vsFlip();
+    setTimeout(function() {
+      nextMove();
+    }, 1300);
   }
   else if(tempScore[currSlide-1] > tempScore[currSlide]){
-    console.log(currSlide)
+    const word = document.createElement("h1");
+    backCircle.innerText= "";
+    word.innerText = "X";
+    backCircle.style.backgroundColor = "red";
+    backCircle.style.color = "white";
+    backCircle.appendChild(word);
+    vsFlip();
+    // console.log(currSlide);
   }
 }
 
 //down버튼 이벤트에 매칭되는 함수, 현재 페이지의 평점이 직전의 것보다 작은지 확인
 const isLower = () => {
   if(tempScore[currSlide-1] > tempScore[currSlide]){
-    nextMove()
+    const word = document.createElement("h1");
+    backCircle.innerText= "";
+    word.innerText = "O";
+    backCircle.style.backgroundColor = "green";
+    backCircle.style.color = "white";
+    backCircle.appendChild(word);
+    vsFlip();
+    setTimeout(function() {
+      nextMove();
+    }, 1300);
   }
   else if(tempScore[currSlide-1] < tempScore[currSlide]){
-    console.log(currSlide)
+    const word = document.createElement("h1");
+    backCircle.innerText= "";
+    word.innerText = "X";
+    backCircle.style.backgroundColor = "red";
+    backCircle.style.color = "white";
+    backCircle.appendChild(word);
+    vsFlip();
+    // console.log(currSlide)
   }
 }
 
+function vsFlip() {
+  vsCircle.animate([
+    {transform:"rotateY(0deg)"},
+    {transform:"rotateY(180deg)"},
+    {transform:"rotateY(360deg)"},
+  ], {
+    duration:2000,
+    easing: "cubic-bezier(0.315, 1.060, 0.635, 0.015)"
+    // iterationStart:0.5,
+  });
+}
+
+
 // 평점 별이미지 중 덮고 있는 이미지
 const rating = document.querySelector(".star-ratings-fill");
+rating.style.width = 0 + '%';
 
 // 슬라이크 전체 크기(width 구하기)
 const slide = document.querySelector(".slide");
@@ -119,7 +167,7 @@ function nextMove() {
       // 각 슬라이드 아이템의 left에 offset 적용
       slideItems.forEach((i) => {
         // i.setAttribute("style", `transition: ${0}s; left: ${-offset}px`);
-        i.setAttribute("style", `transition: ${0.15}s; left: ${-offset}px`);
+        i.setAttribute("style", `transition: ${0.5}s; left: ${-offset}px`);
       });
     }, 0);
     // // 슬라이드 이동 시 현재 활성화된 pagination 변경
@@ -187,8 +235,11 @@ const scoreBtn = document.querySelector(".score-btn")
 
 scoreBtn.addEventListener("click", (e) => {
   const counter = document.querySelector(".count");
-  countScore(counter, 3.2);
+  countScore(counter, 7.3);
+  console.log(e)
 })
+
+
 
 //숫자 증가 애니메이션을 위한 함수 max를 목표로 값으로 증가
 function countScore(counter, max) {
@@ -208,6 +259,10 @@ function countScore(counter, max) {
 
     now -= step;
   }, 50);
+}
+
+function versusFlip() {
+  vsCircle.style.animationName = "flipVS";
 }
 
 // // 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기

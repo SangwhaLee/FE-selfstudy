@@ -16,6 +16,7 @@ body {
   flex-wrap: nowrap;
   /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
   overflow: hidden;
+  
 
   /* position */
   /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
@@ -240,4 +241,46 @@ button {
   cursor: pointer;
   position: absolute;
   bottom: 40%;
+}
+
+#coin {
+  position: relative;
+  margin: 0 auto;
+  bottom: 57%;
+  width: 8rem;
+  height: 8rem;
+  font-size: 200%;
+  color: white;
+  transition: transform 1s ease-in;
+  transform-style: preserve-3d;
+}
+
+.side {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.vs-front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  z-index: 10;
+}
+
+.vs-back {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transform:rotateY(-180deg);
+  padding-bottom: 0.55rem;
+  font-size: 140%;
+}
+
+.versus-word {
+  align-self: center;
 }
